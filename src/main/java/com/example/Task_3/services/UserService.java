@@ -40,7 +40,6 @@ public class UserService {
     //Update Username of the User
     public User updateUserUsername(String id, String username) {
         User user = userRepository.findById(id).orElse(null);
-        System.out.println("USER GOTTEN? " + user);
 
         if (user == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
