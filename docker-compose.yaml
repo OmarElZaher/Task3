@@ -4,7 +4,11 @@ services:
     ports:
       - "8080:8080"
     environment:
-      Instance: "Instance 1"
+      Instance: 1
+      SPRING_DATA_MONGODB_DATABASE: omar_52_1672
+      SPRING_DATA_MONGODB_URI: mongodb://root:example@mongo:27017/?authSource=admin
+    depends_on:
+      - mongo
 
 
   elzaher:
@@ -12,7 +16,11 @@ services:
     ports:
       - "8081:8080"
     environment:
-      Instance: "Instance 2"
+      Instance: 2
+      SPRING_DATA_MONGODB_DATABASE: omar_52_1672
+      SPRING_DATA_MONGODB_URI: mongodb://root:example@mongo:27017/omar_52_1672?authSource=admin
+    depends_on:
+      - mongo
 
   mongo:
     image: mongo
